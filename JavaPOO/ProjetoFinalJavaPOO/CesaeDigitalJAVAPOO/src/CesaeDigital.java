@@ -4,20 +4,23 @@ import curso.*;
 import pessoa.*;
 import turma.*;
 
+// Classe principal que gere todo o sistema de gestão do Cesae
 public class CesaeDigital {
-    private ArrayList<Curso> cursos;
-    private ArrayList<Professor> professores;
-    private ArrayList<Aluno> alunos;
-    private Scanner scanner;
+    private ArrayList<Curso> cursos; // Lista de cursos disponíveis
+    private ArrayList<Professor> professores; // Lista de professores registados
+    private ArrayList<Aluno> alunos; // Lista de alunos inscritos
+    private Scanner scanner; // Scanner para leitura de input do utilizador
 
+    // Construtor que inicializa as listas e carrega dados de exemplo
     public CesaeDigital() {
         this.cursos = new ArrayList<>();
         this.professores = new ArrayList<>();
         this.alunos = new ArrayList<>();
         this.scanner = new Scanner(System.in);
-        inicializarDados();
+        inicializarDados(); // Carrega dados iniciais para teste
     }
 
+    // Método para popular o sistema com dados fictícios para demonstração
     private void inicializarDados() {
         // Criar Professores
         Professor p1 = new Professor("João Silva", "joao@cesae.pt", "912345678", 45, "Programação", 2500);
@@ -74,6 +77,7 @@ public class CesaeDigital {
         }
     }
 
+    // Exibe o menu principal e gere a navegação
     public void menuPrincipal() {
         while (true) {
             System.out.println("\n===== GESTÃO CESAE DIGITAL =====\n");
@@ -117,6 +121,7 @@ public class CesaeDigital {
     }
 
     // Métodos Auxiliares
+    // Lê um valor inteiro do teclado com tratamento de erro
     private int lerInteiro() {
         try {
             return Integer.parseInt(scanner.nextLine());
@@ -125,6 +130,7 @@ public class CesaeDigital {
         }
     }
 
+    // Lê um valor decimal do teclado com tratamento de erro
     private double lerDouble() {
         try {
             return Double.parseDouble(scanner.nextLine());
@@ -135,6 +141,7 @@ public class CesaeDigital {
 
     // --- MENUS ---
 
+    // Menu de operações relacionadas com cursos
     private void menuCursos() {
         System.out.println("\n--- GESTÃO DE CURSOS ---\n");
         System.out.println("1. Criar Curso");
@@ -159,6 +166,7 @@ public class CesaeDigital {
         }
     }
 
+    // Menu de operações relacionadas com turmas
     private void menuTurmas() {
         System.out.println("\n--- GESTÃO DE TURMAS ---\n");
         System.out.println("1. Criar Turma");
@@ -192,6 +200,7 @@ public class CesaeDigital {
         }
     }
 
+    // Menu de operações relacionadas com UCs
     private void menuUCs() {
         System.out.println("\n--- GESTÃO DE UCs ---\n");
         System.out.println("1. Criar UC");
@@ -228,6 +237,7 @@ public class CesaeDigital {
         }
     }
 
+    // Menu de operações relacionadas com professores
     private void menuProfessores() {
         System.out.println("\n--- GESTÃO DE PROFESSORES ---\n");
         System.out.println("1. Registar Professor");
@@ -256,6 +266,7 @@ public class CesaeDigital {
         }
     }
 
+    // Menu de operações relacionadas com alunos
     private void menuAlunos() {
         System.out.println("\n--- GESTÃO DE ALUNOS ---\n");
         System.out.println("1. Inscrever Novo Aluno");
@@ -293,6 +304,7 @@ public class CesaeDigital {
         }
     }
 
+    // Menu de estatísticas, totais e relatórios do sistema
     private void menuEstatisticas() {
         System.out.println("\n--- ESTATÍSTICAS E RELATÓRIOS ---\n");
         System.out.println("1. Totais (Alunos, Professores, Cursos, Turmas)");
@@ -379,10 +391,12 @@ public class CesaeDigital {
                 }
                 if (maior != null)
                     System.out
-                            .println("\nMaior turma: " + maior.getNome() + " (" + maior.getAlunos().size() + " alunos)");
+                            .println(
+                                    "\nMaior turma: " + maior.getNome() + " (" + maior.getAlunos().size() + " alunos)");
                 if (menor != null)
                     System.out
-                            .println("\nMenor turma: " + menor.getNome() + " (" + menor.getAlunos().size() + " alunos)");
+                            .println(
+                                    "\nMenor turma: " + menor.getNome() + " (" + menor.getAlunos().size() + " alunos)");
                 break;
             case 7:
                 System.out.println("\nEstado (1-ATIVO, 2-SUSPENSO, 3-CONCLUIDO, 4-DESISTENTE): ");
@@ -405,6 +419,7 @@ public class CesaeDigital {
         }
     }
 
+    // Obtém todas as turmas de todos os cursos num único ArrayList
     private ArrayList<Turma> getTodasTurmas() {
         ArrayList<Turma> todas = new ArrayList<>();
         for (Curso c : cursos)

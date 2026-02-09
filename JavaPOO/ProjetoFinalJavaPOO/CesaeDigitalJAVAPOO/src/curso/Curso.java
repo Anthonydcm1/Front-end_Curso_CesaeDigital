@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import turma.Turma;
 import turma.UnidadeCurricular;
 
+// Classe que representa um curso do Cesae
 public class Curso {
-    private String nome;
-    private TipoCurso tipo;
-    private int duracaoMeses;
-    private ArrayList<Turma> turmas;
-    private ArrayList<UnidadeCurricular> unidadesCurriculares;
+    private String nome; // Nome do curso
+    private TipoCurso tipo; // Tipo de curso (Formação, Pós-graduação, etc.)
+    private int duracaoMeses; // Duração do curso em meses
+    private ArrayList<Turma> turmas; // Lista de turmas associadas a este curso
+    private ArrayList<UnidadeCurricular> unidadesCurriculares; // Disciplinas do curso
 
+    // Construtor para criar um novo curso
     public Curso(String nome, TipoCurso tipo, int duracaoMeses) {
         this.nome = nome;
         this.tipo = tipo;
@@ -19,16 +21,19 @@ public class Curso {
         this.unidadesCurriculares = new ArrayList<>();
     }
 
+    // Adiciona uma nova turma ao curso
     public void adicionarTurma(Turma turma) {
         turmas.add(turma);
     }
 
+    // Adiciona uma Unidade Curricular ao curso, se ainda não existir
     public void adicionarUC(UnidadeCurricular uc) {
         if (!unidadesCurriculares.contains(uc)) {
             unidadesCurriculares.add(uc);
         }
     }
 
+    // Lista todas as turmas que pertencem a este curso
     public void listarTurmas() {
         System.out.println("\nTurmas do curso " + nome + ":");
         for (Turma t : turmas) {
@@ -36,6 +41,7 @@ public class Curso {
         }
     }
 
+    // Mostra informações detalhadas sobre o curso
     public void mostrarDetalhes() {
         System.out.println("\nCurso: " + nome + " (" + tipo + ")");
         System.out.println("Duração: " + duracaoMeses + " meses");

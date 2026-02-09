@@ -2,12 +2,14 @@ package turma;
 
 import pessoa.Professor;
 
+// Classe que representa uma disciplina ou módulo (UC)
 public class UnidadeCurricular {
-    private String nome;
-    private String codigo;
-    private int cargaHoraria;
-    private Professor professor;
+    private String nome; // Nome da disciplina
+    private String codigo; // Código identificador (ex: "JAVA-01")
+    private int cargaHoraria; // Total de horas da disciplina
+    private Professor professor; // Professor responsável por lecionar a UC
 
+    // Construtor para criar uma nova Unidade Curricular
     public UnidadeCurricular(String nome, String codigo, int cargaHoraria, Professor professor) {
         this.nome = nome;
         this.codigo = codigo;

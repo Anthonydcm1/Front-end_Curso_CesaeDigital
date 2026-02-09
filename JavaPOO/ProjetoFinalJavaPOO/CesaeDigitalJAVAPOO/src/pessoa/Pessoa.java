@@ -1,11 +1,13 @@
 package pessoa;
 
+// Classe abstrata que representa uma pessoa genérica no sistema
 public abstract class Pessoa {
-    private String nome;
-    private String email;
-    private String telefone;
-    private int idade;
+    private String nome; // Nome da pessoa
+    private String email; // Email de contacto
+    private String telefone; // Número de telefone
+    private int idade; // Idade em anos
 
+    // Construtor base para inicializar os dados de uma pessoa
     public Pessoa(String nome, String email, String telefone, int idade) {
         setNome(nome);
         setEmail(email);
@@ -13,6 +15,7 @@ public abstract class Pessoa {
         setIdade(idade);
     }
 
+    // Método abstrato que obriga as subclasses a implementar a exibição de detalhes
     public abstract void mostrarDetalhes();
 
     @Override
